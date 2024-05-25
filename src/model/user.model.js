@@ -1,23 +1,24 @@
 import mongoose from "mongoose";
-
-
-
-
-import mongoose from 'mongoose';
+import { BaseSchema } from "../core/schema/base.schema.js";
+import { addDefaultQueryConditions } from "../core/common/query.condition.js";
 const { Schema } = mongoose;
+mongoose.plugin(addDefaultQueryConditions);
 
-const blogSchema = new Schema({
-    name: { type: String, required: true },
-    address: {
-        city: { type: String, required: true },
-        state: { type: String, required: true },
-        pincode: { type: String, required: true },
-        complete_address: { type: String, required: false },
-    },
-    user_type:{ type: String, required: true } ,
-    email : {type: String, required: true},
-    phone : {tppe:String,  required: true}
+const userSchema = new Schema({
+  ...BaseSchema.obj,
+  name: { type: String, required: true },
+  address: {
+    city: { type: String },
+    state: { type: String },
+    pincode: { type: String },
+    complete_address: { type: String },
+  },
+  user_type: { type: String, required: true },
+  email: { type: String, required: true },
+  phone: { tppe: String },
+  password: { tppe: String },
 });
 
+const UserModel = mongoose.model("user", userSchema);
 
-const UserModel = mongoose.model('user', blogSchema)
+export default UserModel;
