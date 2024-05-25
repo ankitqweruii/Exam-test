@@ -7,9 +7,8 @@ export class Dbconnection {
     
     async databaseConnect () {
         try {
-
             await mongoose.connect(
-                process.env.DB_CONNECTION_URL
+                process.env.DB_CONNECTION_URL 
                 ,
                 {
                     useNewUrlParser: true,

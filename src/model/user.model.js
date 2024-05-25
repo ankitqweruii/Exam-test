@@ -6,6 +6,8 @@ mongoose.plugin(addDefaultQueryConditions);
 
 const userSchema = new Schema({
   ...BaseSchema.obj,
+  phone:{type:String, required:true} ,
+  password:{type:String , required:true},
   name: { type: String, required: true },
   address: {
     city: { type: String },
@@ -14,9 +16,7 @@ const userSchema = new Schema({
     complete_address: { type: String },
   },
   user_type: { type: String, required: true },
-  email: { type: String, required: true },
-  phone: { tppe: String },
-  password: { tppe: String },
+  email: { type: String, requiredPaths: true },
 });
 
 const UserModel = mongoose.model("user", userSchema);

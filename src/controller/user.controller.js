@@ -18,7 +18,7 @@ export class UserController {
     }
   }
 
-  async findAll(req, res) {
+  async find(req, res) {
     try {
       sendResponse(
         res,
@@ -27,7 +27,33 @@ export class UserController {
       );
     } catch (err) {
       console.error(err);
-      sendResponse(res, responseCode.BAD_REQUEST, null, err);
+      sendResponse(res, responseCode.INTERNAL_SERVER_ERROR, null, err);
+    }
+  }
+
+  async findAll(req, res) {
+    try {
+      sendResponse(
+        res,
+        responseCode.OK,
+        await userService.findAll(req)
+      );
+    } catch (err) {
+      console.error(err);
+      sendResponse(res, responseCode.INTERNAL_SERVER_ERROR, null, err);
+    }
+  }
+
+  async login(req, res) {
+    try {
+      sendResponse(
+        res,
+        responseCode.OK,
+        await userService.userLogin(req)
+      );
+    } catch (err) {
+      console.error(err);
+      sendResponse(res, responseCode.INTERNAL_SERVER_ERROR, null, err);
     }
   }
 }
