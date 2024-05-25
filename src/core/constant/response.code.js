@@ -5,7 +5,7 @@
     PROCESSING: 102,
     EARLY_HINTS: 103,
   
-    // 2xx: Success
+    // 2xx:  Success
     OK: 200,
     CREATED: 201,
     ACCEPTED: 202,
