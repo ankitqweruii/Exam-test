@@ -5,5 +5,5 @@ export const RoundsOfSalt = Object.freeze({
 export const commonResponse = Object.freeze({
   UserNotFound: "USER_NOT_FOUND",
   InvalidCredential: "INVALID_CREDENTIAL",
-  Unauthorize : "UNAUTHORIZED"
+  Unauthorize: "UNAUTHORIZED",
 });
